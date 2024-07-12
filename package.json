@@ -1,4 +1,6 @@
 {
+<<<<<<< HEAD
+=======
   "name": "intern",
   "version": "1.0.0",
   "main": "index.js",
@@ -10,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "description": "",
+>>>>>>> origin/abhishek
   "dependencies": {
     "nodemon": "^3.1.4",
     "pdf-lib": "^1.17.1"
