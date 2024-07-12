@@ -24,7 +24,7 @@ async function modifyPDF(input, output, userData) {
       { x: 43, y: height - 120, width: 90, height: 10, text: userData.labNo, color: rgb(0, 0, 0) },
       { x: 183, y: height - 118, width: 90, height: 10, text: userData.refBy, color: rgb(0, 0, 0) },
       { x: 359, y: height - 118, width: 110, height: 10, text: userData.dateAndTime, color: rgb(0, 0, 0) },
-      { x: 280, y: height - 196, width: 90, height: 10, text: userData.UAlbumin, color: rgb(0, 0, 0) },
+      { x: 270, y: height - 196, width: 90, height: 10, text: userData.UAlbumin, color: parseFloat(userData.UAlbumin) >20 ? rgb(1, 0, 0) : rgb(0, 0, 0) },
     ];
 
     for (const field of fields) {
@@ -66,7 +66,7 @@ const userData = {
   labNo: 'lab no.',
   refBy: 'ref by.',
   dateAndTime: 'date & time',
-  UAlbumin: '10',
+  UAlbumin: '30',
 };
 
 // Modify the PDF with the specified input and output file paths and user data

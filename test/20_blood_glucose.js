@@ -18,14 +18,28 @@ async function modifyPDF(input, output, userData) {
       { x: 37, y: height - 78, width: 110, height: 10, text: userData.name, color: rgb(0, 0, 0) },
       { x: 195, y: height - 78, width: 110, height: 10, text: userData.patientId, color: rgb(0, 0, 0) },
       { x: 339, y: height - 78, width: 110, height: 10, text: userData.gender, color: rgb(0, 0, 0) },
-      { x: 37, y: height - 98, width: 110, height: 10, text: userData.place, color: rgb(0.5, 0, 0) },
+      { x: 37, y: height - 98, width: 110, height: 10, text: userData.place, color: rgb(0, 0, 0) },
       { x: 172, y: height - 98, width: 110, height: 10, text: userData.age, color: rgb(0, 0, 0) },
       { x: 351, y: height - 98, width: 110, height: 10, text: userData.acStatus, color: rgb(0, 0, 0) },
       { x: 43, y: height - 120, width: 90, height: 10, text: userData.labNo, color: rgb(0, 0, 0) },
       { x: 183, y: height - 118, width: 90, height: 10, text: userData.refBy, color: rgb(0, 0, 0) },
       { x: 359, y: height - 118, width: 110, height: 10, text: userData.dateAndTime, color: rgb(0, 0, 0) },
-      { x: 308, y: height - 225, width: 90, height: 10, text: userData.hba1c, color: rgb(0, 0, 0) },
-      { x: 308, y: height - 195, width: 90, height: 10, text: userData.eag, color: rgb(0, 0, 0) },
+      { 
+        x: 308, 
+        y: height - 225, 
+        width: 90, 
+        height: 10, 
+        text: userData.PostPrandialGlucose, 
+        color: (parseFloat(userData.PostPrandialGlucose) < 70 || parseFloat(userData.PostPrandialGlucose) > 140) ? rgb(1, 0, 0) : rgb(0, 0, 0) 
+      },
+      { 
+        x: 308, 
+        y: height - 195, 
+        width: 90, 
+        height: 10, 
+        text: userData.RandomGlucose, 
+        color: (parseFloat(userData.RandomGlucose) < 70 || parseFloat(userData.RandomGlucose) > 100) ? rgb(1, 0, 0) : rgb(0, 0, 0) 
+      },
     ];
 
     for (const field of fields) {
@@ -67,8 +81,8 @@ const userData = {
   labNo: 'lab no.',
   refBy: 'ref by.',
   dateAndTime: 'date & time',
-  hba1c: '80',
-  eag: '70',
+  RandomGlucose: '800',
+  PostPrandialGlucose: '60',
 };
 
 // Modify the PDF with the specified input and output file paths and user data
